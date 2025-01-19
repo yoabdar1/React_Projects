@@ -6,10 +6,11 @@ const initialState = {
   todos: [{ id: 1, text: "Hello world" }],
 };
 
+// create slice
 export const todoSlice = createSlice({ // here name, initialState and reducers are three properties we give as per docs
   name: "todo",
   initialState,
-  reducers: { // this is reducer which is object which contains properties and functions (addTodo & removeTodo is property here with function)
+  reducers: { // this is reducer which is object which contains properties and functions (addTodo & removeTodo is property and (state,action) => {} is function)
     addTodo: (state, action) => { // every reducer has two parameters access state and action
       const todo = {
         id: nanoid(),
@@ -23,6 +24,6 @@ export const todoSlice = createSlice({ // here name, initialState and reducers a
   },
 });
 
-export const { addTodo, removeTodo } = todoSlice.actions;
+export const { addTodo, removeTodo } = todoSlice.actions; // we will update the state using individual functionality like addTodo, removeTodo so we are exporting individually
 
 export default todoSlice.reducer;
